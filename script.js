@@ -2,7 +2,7 @@
 function createAwinChannelCookie() {
     var Data = new Date();
     var latencia;
-    var tempoDeCookie = 1;
+    var tempoDeCookie = 30;
     var origem;
     var sourceParameter = "utm_source";
     var queryString = window.location.search;
@@ -11,14 +11,14 @@ function createAwinChannelCookie() {
     Data.setTime(Data.getTime() + (tempoDeCookie * 24 * 60 * 60 * 1000));
     latencia = Data.toUTCString();
 
-    //Check if last click was Awin, and if not other paid medias that use "utm_source" or other parameters such as facebook or google
+    //Check if last click was Awin, and if not other paid medias that use "utm_source" or other parameters such as google
     if (urlParams.get(sourceParameter) != "awin" && urlParams.get(sourceParameter) != null || window.location.href.indexOf("gclid") > -1 || window.location.href.indexOf("fbclid") > -1) {
         origem = "other";
     } else {
         origem = "aw";
     }
 
-    document.cookie = "AwinChannelCookie=" + origem + "; expires=" + latencia + ";path=/; Domain=.gifted-gates-5ec24a.netlify.app";
+    document.cookie = "AwinChannelCookie=" + origem + "; expires=" + latencia + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";
 }
 
 function appendAwinMastertag() {
